@@ -1,8 +1,9 @@
-let items = {};
+let itemsData = {};
 
 $.getJSON("./index.json",
 	function (json) {
-		items = json;
+		const { items } = json;
+		itemsData = items;
 		console.log({ items });
 	}
 );
@@ -23,8 +24,8 @@ function GetItem(item) {
 const main = document.getElementById("root");
 main.innerHTML = "";
 
-if (items.equipped.length > 0) {
-	items.equipped.map((item) => {
+if (itemsData.equipped.length > 0) {
+	itemsData.equipped.map((item) => {
 		main.appendChild(GetItem(item));
 	});
 }
