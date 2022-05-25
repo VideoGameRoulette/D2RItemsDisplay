@@ -1,10 +1,8 @@
-let userData = {};
-
 $.getJSON("./index.json",
 	function (json) {
 		const { items } = json;
-		userData = { ...items };
-		console.log(userData.equipped);
+		const userData = { ...items };
+		appendItem(userData);
 	}
 );
 
@@ -21,11 +19,14 @@ function GetItem(item) {
 	return itemContainer;
 }
 
-const main = document.getElementById("root");
-main.innerHTML = "";
+function appendItem(userData) {
+	const main = document.getElementById("root");
+	main.innerHTML = "";
 
-if (userData.items.equipped.length > 0) {
-	userData.items.equipped.map((item) => {
-		main.appendChild(GetItem(item));
-	});
+	if (userData.equipped.length > 0) {
+		userData.equipped.map((item) => {
+			main.appendChild(GetItem(item));
+		});
+	}
 }
+
