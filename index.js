@@ -4,7 +4,7 @@ $.getJSON("./index.json",
 	function (json) {
 		const { items } = json;
 		userData = { ...items };
-		console.log(itemsData);
+		console.log(userData.items.equipped);
 	}
 );
 
