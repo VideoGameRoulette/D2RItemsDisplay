@@ -3,7 +3,7 @@ let itemsData = {};
 $.getJSON("./index.json",
 	function (json) {
 		const { items } = json;
-		itemsData = items;
+		itemsData = { ...items };
 		console.log({ items });
 	}
 );
