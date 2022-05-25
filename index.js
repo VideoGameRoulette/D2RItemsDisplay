@@ -1,10 +1,10 @@
-let itemsData = {};
+let userData = {};
 
 $.getJSON("./index.json",
 	function (json) {
 		const { items } = json;
-		itemsData = { ...items };
-		console.log({ items });
+		userData = { ...items };
+		console.log(itemsData);
 	}
 );
 
@@ -24,8 +24,8 @@ function GetItem(item) {
 const main = document.getElementById("root");
 main.innerHTML = "";
 
-if (itemsData.equipped.length > 0) {
-	itemsData.equipped.map((item) => {
+if (userData.items.equipped.length > 0) {
+	userData.items.equipped.map((item) => {
 		main.appendChild(GetItem(item));
 	});
 }
